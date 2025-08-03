@@ -1,8 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-
-interface AuthenticatedRequest extends Request {
-  user?: { id: string; role: string };
-}
+import { AuthenticatedRequest } from "../middleware/authenticate";
 
 export const restrictTo = (roles: string[]) => {
   return (req: AuthenticatedRequest, res: Response, next: NextFunction) => {

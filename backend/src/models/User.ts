@@ -1,5 +1,4 @@
 import mongoose, { Schema, Document } from "mongoose";
-import { ref } from "process";
 
 export interface IUser extends Document {
   username: string;

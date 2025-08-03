@@ -5,27 +5,27 @@ import {
   removeMembers,
   getSocieties,
 } from "../controllers/societyController";
-import { autheticate } from "../middleware/authenticate";
+import { authenticate } from "../middleware/authenticate";
 import { restrictTo } from "../middleware/restrictTo";
 
 const router = Router();
 
 router.get(
   "/",
-  autheticate,
+  authenticate,
   restrictTo(["Admin", "Teacher", "Student"]),
   getSocieties
 );
-router.post("/", autheticate, restrictTo(["Teacher"]), createSociety);
+router.post("/", authenticate, restrictTo(["Teacher"]), createSociety);
 router.post(
   "/:societyId/members",
-  autheticate,
+  authenticate,
   restrictTo(["Teacher"]),
   addMembers
 );
 router.delete(
   "/:societyId/members",
-  autheticate,
+  authenticate,
   restrictTo(["Teacher"]),
   addMembers
 );

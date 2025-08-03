@@ -1,10 +1,7 @@
 import { Request, Response } from "express";
 import Society from "../models/Society";
 import User from "../models/User";
-
-interface AuthenticatedRequest extends Request {
-  user?: { id: string; role: string };
-}
+import { AuthenticatedRequest } from "../middleware/authenticate";
 
 export const createSociety = async (
   req: AuthenticatedRequest,

@@ -5,17 +5,17 @@ import {
   updateUser,
   deleteUser,
 } from "../controllers/userController";
-import { autheticate } from "../middleware/authenticate";
+import { authenticate } from "../middleware/authenticate";
 import { restrictTo } from "../middleware/restrictTo";
 
 const router = Router();
 
-router.get("/", autheticate, restrictTo(["Admin"]), getUsers);
+router.get("/", authenticate, restrictTo(["Admin"]), getUsers);
 
-router.post("/", autheticate, restrictTo(["Admin"]), createUser);
+router.post("/", authenticate, restrictTo(["Admin"]), createUser);
 
-router.put("/:id", autheticate, restrictTo(["Admin"]), updateUser);
+router.put("/:id", authenticate, restrictTo(["Admin"]), updateUser);
 
-router.delete("/:id", autheticate, restrictTo(["Admin"]), deleteUser);
+router.delete("/:id", authenticate, restrictTo(["Admin"]), deleteUser);
 
 export default router;
