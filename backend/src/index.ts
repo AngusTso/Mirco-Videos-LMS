@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import authRoutes from "./routes/authRoutes";
 import userRoutes from "./routes/userRoutes";
+import societyRoutes from "./routes/userRoutes";
 
 dotenv.config();
 
@@ -14,8 +15,10 @@ const MONGO_URI =
 //Middleware Section
 app.use(express.json());
 
+//Routes Section
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/societies", societyRoutes);
 
 app.get("/", (req: Request, res: Response) =>
   res.send("This is Micro-LMS Backend")
