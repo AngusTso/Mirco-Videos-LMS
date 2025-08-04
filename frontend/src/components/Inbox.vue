@@ -20,7 +20,6 @@
         <p class="text-sm text-gray-500">
           Uploaded: {{ formatDate(invite.createdAt) }}
         </p>
-        <p class="text-sm text-gray-500">Visibility: {{ invite.visibility }}</p>
         <p class="text-sm text-gray-500">Status: {{ invite.inviteStatus }}</p>
         <div class="mt-4 flex space-x-2">
           <button

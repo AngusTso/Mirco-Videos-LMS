@@ -103,11 +103,6 @@ export default defineComponent({
             icon: "fas fa-video",
           },
           {
-            name: "Societies",
-            path: "/dashboard/societies",
-            icon: "fas fa-users-cog",
-          },
-          {
             name: "Invitations",
             path: "/dashboard/invites",
             icon: "fas fa-envelope",
@@ -127,7 +122,7 @@ export default defineComponent({
       }
     };
 
-    return { navItems, logout };
+    return { navItems, logout, userRole };
   },
 });
 </script>

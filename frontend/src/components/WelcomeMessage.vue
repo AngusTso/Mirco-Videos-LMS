@@ -4,7 +4,6 @@
       <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">
         Welcome to Video LMS
       </h2>
-      <p>Use the Sidebar to go into a function</p>
     </div>
   </div>
 </template>
