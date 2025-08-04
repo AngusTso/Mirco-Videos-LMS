@@ -19,4 +19,4 @@ const SocietySchema: Schema = new Schema(
   { timestamps: true }
 );
 
-export default mongoose.model<ISociety>("Society, SocietySchema");
+export default mongoose.model<ISociety>("Society", SocietySchema);

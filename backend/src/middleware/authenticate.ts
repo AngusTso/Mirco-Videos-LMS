@@ -12,9 +12,10 @@ export const authenticate = (
 ) => {
   //get token from request
   const token = req.headers.authorization?.split(" ")[1];
-
-  if (!token)
+  if (!token) {
+    console.log("Serve mfk");
     return res.status(401).json({ code: 401, message: "No Token provided" });
+  }
 
   //if verify success, save the id and role to req.user else return error to user
   const decoded = jwt.verify(token, process.env.JWT_SECRET!) as {

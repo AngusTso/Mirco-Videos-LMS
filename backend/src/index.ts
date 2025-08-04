@@ -3,7 +3,10 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import authRoutes from "./routes/authRoutes";
 import userRoutes from "./routes/userRoutes";
-import societyRoutes from "./routes/userRoutes";
+import societyRoutes from "./routes/societyRoutes";
+import videoRoutes from "./routes/videoRoutes";
+import inviteRoutes from "./routes/inviteRoutes";
+import cors from "cors";
 
 dotenv.config();
 
@@ -11,14 +14,27 @@ const app = express();
 const PORT = process.env.PORT || 5050;
 const MONGO_URI =
   process.env.MONGO_URI || "mongodb://localhost:27017/micro-video-lms";
-
 //Middleware Section
 app.use(express.json());
-
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    exposedHeaders: [
+      "Content-Range",
+      "Accept-Ranges",
+      "Content-Length",
+      "Content-Type",
+    ],
+    credentials: true,
+  })
+);
 //Routes Section
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/societies", societyRoutes);
+app.use("/api/videos", videoRoutes);
+app.use("/api/invite", inviteRoutes);
 
 app.get("/", (req: Request, res: Response) =>
   res.send("This is Micro-LMS Backend")
